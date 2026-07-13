@@ -3,7 +3,7 @@ Unit tests for the HTMLNode class, focusing primarily on attribute serialization
 """
 
 import unittest
-from htmlnode import HTMLNode  # Assumes HTMLNode is in src/htmlnode.py or similar
+from htmlnode import HTMLNode,LeafNode,ParentNode  # Assumes HTMLNode is in src/htmlnode.py or similar
 
 
 class TestHTMLNode(unittest.TestCase):
