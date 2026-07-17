@@ -104,6 +104,6 @@ def text_to_textnodes(text):
     holder = split_nodes_image(holder)
     holder = split_nodes_link(holder)
     holder = split_nodes_delimiter(holder,delimiter="**",text_type=TextType.BOLD)
-    holder = split_nodes_delimiter(holder,delimiter="*",text_type=TextType.ITALIC)
+    holder = split_nodes_delimiter(holder,delimiter="_",text_type=TextType.ITALIC)
     holder= split_nodes_delimiter(holder,delimiter="`",text_type=TextType.CODE)
     return holder

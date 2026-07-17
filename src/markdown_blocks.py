@@ -8,8 +8,8 @@ class BlockType(Enum):
     HEADING = "heading"
     CODE = "code"
     QUOTE = "quote"
-    UNORDERED_LIST = "unordered_list"
-    ORDERED_LIST = "ordered_list"
+    U_LIST = "unordered_list"
+    O_LIST = "ordered_list"
 
 def block_to_block_type(block):
     if block.startswith(("# ","## ","### ","#### " ,"##### ","###### ")):
@@ -19,9 +19,9 @@ def block_to_block_type(block):
     if blocktype_quote_check(block):
         return BlockType.QUOTE
     if blocktype_unordered_check(block):
-        return BlockType.UNORDERED_LIST
+        return BlockType.U_LIST
     if blocktype_ordered_check(block):
-        return BlockType.ORDERED_LIST
+        return BlockType.O_LIST
     return BlockType.PARAGRAPH
 
 def blocktype_quote_check(block):
@@ -76,9 +76,9 @@ def markdown_to_html_node(markdown):
             children.append(code_to_html_node(block))
         elif block_type == BlockType.QUOTE:
             children.append(quote_to_html_node(block))
-        elif block_type == BlockType.UNORDERED_LIST:
+        elif block_type == BlockType.U_LIST:
             children.append(ulist_to_html_node(block))
-        elif block_type == BlockType.ORDERED_LIST:
+        elif block_type == BlockType.O_LIST:
             children.append(olist_to_html_node(block))
     return ParentNode("div", children)
 
